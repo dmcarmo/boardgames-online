@@ -1,0 +1,11 @@
+<h1><%= @site.name %></h1>
+<%= link_to "link", @site.url %>
+<div class="btn btn-primary"><%= link_to "Update game list", update_games_path(@site) %></div>
+<h2>List of games</h2>
+<% if @site.games.empty? %>
+  <p>Game list is empty</p>
+<% else %>
+  <% @site.games.each do |game| %>
+    <ul><%= link_to game.name, game.bgg_url %></ul>
+  <% end %>
+<% end %>

@@ -3,6 +3,7 @@ class CreateSites < ActiveRecord::Migration[6.0]
     create_table :sites do |t|
       t.string :name
       t.string :url
+      t.date :last_check
 
       t.timestamps
     end
