@@ -28,16 +28,15 @@ class SitesController < ApplicationController
     page = get_page(@site.url)
     results = get_games(page)
     results.keys.each do |item|
-      # find game in Games
-      # if game doesn't exist, create it in Games
       if Game.find_by(name: item.to_s).nil?
         Game.create(name: item.to_s, bgg_id: results[item][:bgg_id], bgg_url: results[item][:bgg_url])
       end
       game = Game.find_by(name: item.to_s)
-      # add site_ID to game in Games and push game_ID to site.games_list
-      # game[:sites_list].push(@site.id)
-      @site[:games_list].push(game[:id])
+      unless @site.games.include?(game)
+        @site.games << game
+      end
     end
+    redirect_to site_path
   end
 
   def destroy
