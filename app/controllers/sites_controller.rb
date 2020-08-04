@@ -1,5 +1,6 @@
 class SitesController < ApplicationController
 
+  skip_before_action :authenticate_user!, only: :index
   before_action :set_site, only: [:show, :edit, :update, :update_games, :destroy]
 
   def index
