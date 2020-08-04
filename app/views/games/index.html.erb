@@ -1,14 +1,25 @@
-<h1>Boardgames Online</h1>
-<p>If you want to know where your favorite boardgame is available to play online, this page is for you!</p>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Sites</th>
-  </tr>
-  <% @games.each do |game| %>
+<div class="header">
+  <h1>Boardgames Online</h1>
+  <h3>If you want to know where your favorite boardgame is available to play online, this page is for you!</h3>
+</div>
+<div class="empty"></div>
+<div class="table">
+  <table>
     <tr>
-      <td><%= game.name %></td>
-      <td>INSERT SITE</td>
+      <th>Name</th>
+      <th>Sites</th>
     </tr>
-  <% end %>
-</table>
+    <% @games.each do |game| %>
+      <tr>
+        <td>
+          <%= link_to game.name, game.bgg_url %>
+        </td>
+        <td>
+          <% game.sites.each do |site| %>
+            <%= link_to site.name, site.url %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
