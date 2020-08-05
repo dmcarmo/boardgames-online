@@ -3,6 +3,16 @@
   <h3>If you want to know where your favorite boardgame is available to play online, this page is for you!</h3>
 </div>
 <div class="empty"></div>
+<div>
+  <%= form_tag root_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a game"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
 <div class="table">
   <table>
     <tr>
