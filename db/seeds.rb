@@ -11,9 +11,3 @@ sites = Site.create([
   { name: "Boiteajeux", url: "http://boiteajeux.net/index.php?p=regles"}
 ])
 puts "Finished!"
-
-# puts "Creating games..."
-# games = Game.create([
-#   { name: "Agricola"}
-# ])
-# puts "Finished!"
