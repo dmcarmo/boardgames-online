@@ -2,10 +2,11 @@ class GamesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    @sites = Site.all
     if params["query"].present?
-      @games = Game.all.search_by_name(params["query"])
+      @games = Game.search_by_name(params["query"]).includes(:sites)
     else
-      @games = Game.all
+      @games = Game.includes(:sites)
     end
     respond_to do |format|
       format.html

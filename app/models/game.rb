@@ -4,7 +4,12 @@ class Game < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_name,
-    against: [:name],
+    against: :name,
+    using: {
+      tsearch: { prefix: true }
+    }
+  pg_search_scope :filter_by_site,
+    associated_against: { sites: :name },
     using: {
       tsearch: { prefix: true }
     }
