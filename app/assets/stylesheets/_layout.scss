@@ -2,13 +2,6 @@ body {
   background-color: whitesmoke
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
 h1, h3 {
   text-align: center;
 }
@@ -34,7 +27,10 @@ form {
   justify-content: center;
   border: 1px solid darkgray;
   border-radius: 4px;
-  margin-top: 30px;
   margin-bottom: 20px;
   background-color: white;
+}
+
+.sticky-form {
+  top: 0;
 }

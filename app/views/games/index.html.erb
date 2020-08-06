@@ -3,33 +3,26 @@
   <h3>If you want to know where your favorite boardgame is available to play online, this page is for you!</h3>
 </div>
 <div class="empty"></div>
-<div>
-  <%= simple_form_for root_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a game"
-    %>
-    <%= submit_tag "Go!", class: "btn btn-primary" %>
-  <% end %>
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+    <div class="position-sticky sticky-form">
+      <%= simple_form_for root_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a game"
+        %>
+        <%= submit_tag "Go!", class: "btn btn-primary" %>
+      <% end %>
+      <hr>
+      <%= simple_form_for :filter, url: root_path, method: :get, remote: true do |f| %>
+        <%= f.input :sites, label: "Sites", collection: @sites, as: :check_boxes %>
+        <%= link_to "Reset", root_path  %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-8 table">
+    <%= render 'game', games: @games %>
+  </div>
 </div>
-<div class="table">
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Sites</th>
-    </tr>
-    <% @games.each do |game| %>
-      <tr>
-        <td>
-          <%= link_to game.name, game.bgg_url %>
-        </td>
-        <td>
-          <% game.sites.each do |site| %>
-            <%= link_to site.name, site.url %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
-</div>
+<%= javascript_pack_tag 'checkbox' %>

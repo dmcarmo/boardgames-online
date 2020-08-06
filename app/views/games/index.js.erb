@@ -1,0 +1,6 @@
+function replaceGames (innerHTML) {
+  const games = document.getElementById('games');
+  games.innerHTML = innerHTML;
+}
+
+replaceGames("<%= j render 'game', games: @games %>");
