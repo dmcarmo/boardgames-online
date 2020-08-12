@@ -6,17 +6,23 @@
 <div class="row">
   <div class="col-xs-12 col-sm-4">
     <div class="position-sticky sticky-form">
-      <%= simple_form_for root_path, method: :get do %>
+      <!--<%= simple_form_for root_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder: "Find a game"
         %>
         <%= submit_tag "Go!", class: "btn btn-primary" %>
-      <% end %>
+      <% end %> -->
       <hr>
       <%= simple_form_for :filter, url: root_path, method: :get, remote: true do |f| %>
-        <%= f.input :sites, label: "Sites", collection: @sites, as: :check_boxes %>
+        <%= f.input :search,
+          class: "form-control",
+          placeholder: "Find a game"
+        %>
+        <%= submit_tag "Go!", class: "btn btn-primary" %>
+        <hr>
+        <%= f.input :sites, label: "Sites", collection: @sites, as: :check_boxes, include_hidden: false %>
         <%= link_to "Reset", root_path  %>
       <% end %>
     </div>

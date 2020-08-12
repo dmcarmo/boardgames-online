@@ -8,9 +8,4 @@ class Game < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-  pg_search_scope :filter_by_site,
-    associated_against: { sites: :name },
-    using: {
-      tsearch: { prefix: true }
-    }
 end
