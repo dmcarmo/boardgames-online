@@ -1,18 +1,10 @@
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Sites</th>
-  </tr>
-  <% @games.each do |game| %>
-    <tr>
-      <td>
-        <%= link_to game.name, game.bgg_url %>
-      </td>
-      <td>
-        <% game.sites.each do |site| %>
-          <%= link_to site.name, site.url %>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<% @games.each do |game| %>
+  <div class="card col-md-3 col-lg-2">
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to game.name, game.bgg_url %></h5>
+      <% game.sites.each do |site| %>
+        <%= link_to site.name, site.url, class: "btn btn-light btn-sm" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
