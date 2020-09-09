@@ -3,23 +3,28 @@
   <h3>If you want to know where your favorite boardgame is available to play online, this page is for you!</h3>
 </div>
 <div class="empty"></div>
-<div class="table">
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Sites</th>
-    </tr>
-    <% @games.each do |game| %>
-      <tr>
-        <td>
-          <%= link_to game.name, game.bgg_url %>
-        </td>
-        <td>
-          <% game.sites.each do |site| %>
-            <%= link_to site.name, site.url %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
+<div class="row">
+  <div class="col-xs-12 col-sm-4 filter">
+    <div class="position-sticky sticky-form">
+      <%= simple_form_for :filter, url: root_path, method: :get, remote: true do |f| %>
+        <%= f.input :search,
+          class: "form-control",
+          placeholder: "Find a game",
+          required: false
+        %>
+        <%= f.input :sites, 
+          label: "Sites", 
+          collection: @sites, 
+          as: :check_boxes, 
+          include_hidden: false,
+          required: false
+         %>
+        <%= link_to "Reset", root_path  %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-8 table" id="games">
+    <%= render 'game', games: @games %>
+  </div>
 </div>
+<%= javascript_pack_tag 'checkbox' %>

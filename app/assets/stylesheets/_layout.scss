@@ -2,13 +2,6 @@ body {
   background-color: whitesmoke
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
 h1, h3 {
   text-align: center;
 }
@@ -25,12 +18,24 @@ h1, h3 {
   padding: 15px 0px;
 }
 
+form {
+  display: flex;
+}
+
 .table {
   display: flex;
   justify-content: center;
   border: 1px solid darkgray;
   border-radius: 4px;
-  margin-top: 30px;
   margin-bottom: 20px;
   background-color: white;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+}
+
+.sticky-form {
+  top: 0;
 }

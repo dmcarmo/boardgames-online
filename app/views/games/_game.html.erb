@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Sites</th>
+  </tr>
+  <% @games.each do |game| %>
+    <tr>
+      <td>
+        <%= link_to game.name, game.bgg_url %>
+      </td>
+      <td>
+        <% game.sites.each do |site| %>
+          <%= link_to site.name, site.url %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

@@ -23,6 +23,12 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Forms
+gem 'simple_form'
+
+# Search
+gem 'pg_search', '~> 2.3.0'
+
 # Auth
 gem 'devise'
 
