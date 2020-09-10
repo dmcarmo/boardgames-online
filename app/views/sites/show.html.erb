@@ -11,6 +11,9 @@
     <p><%= Date.today.mjd - @site.last_check.mjd %> days ago</p>
   <% end %>
   <hr>
+  <%= link_to "Back to Sites", sites_path, class: "btn btn-primary" %>
+  <%= link_to "Back to Games", root_path, class: "btn btn-primary" %>
+  <hr>
   <%= link_to "Update game list", update_games_path(@site), class: "btn btn-primary"%>
   <%= link_to "Delete site", site_path(@site), method: :delete, class: "btn btn-danger" %>
 </div>
