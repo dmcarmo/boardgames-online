@@ -13,7 +13,7 @@
         %>
         <%= f.input :sites, 
           label: "Sites", 
-          collection: @sites, 
+          collection: @sites.sort_by(&:name), 
           as: :check_boxes, 
           include_hidden: false,
           required: false
