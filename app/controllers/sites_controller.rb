@@ -17,6 +17,7 @@ class SitesController < ApplicationController
   def create
     @site = Site.new(site_params)
     @site.save
+    redirect_to site_path(@site)
   end
 
   def edit
@@ -37,11 +38,14 @@ class SitesController < ApplicationController
         @site.games << game
       end
     end
-    redirect_to site_path
+    @site.last_check = Date.today
+    @site.save
+    redirect_to site_path(@site)
   end
 
   def destroy
-    @site = @site.destroy
+    @site.destroy
+    redirect_to sites_path
   end
 
   def get_games(page)
@@ -49,6 +53,8 @@ class SitesController < ApplicationController
     case @site.name
     when "Boiteajeux"
       boiteajeux(page, results)
+    when "Boardgamearena"
+      boardgamearena(page, results)
     else
       puts "Implement parsing logic for #{@site.name}"
     end
@@ -70,10 +76,25 @@ class SitesController < ApplicationController
     results
   end
 
+  def boardgamearena(page, results)
+    page.search('#gamelist_itemrow_inner_all .gamelist_item').each do |element|
+      name = element.search(".gamename").text.strip
+      # implement bgg_url and bgg_id methods
+      bgg_url = ""
+      bgg_id = ""
+      results[name.to_sym] = { bgg_url: bgg_url, bgg_id: bgg_id }
+    end
+    results
+  end
+
   private
 
   def set_site
     @site = Site.find(params[:id])
+  end
+
+  def site_params
+    params.require(:site).permit(:name, :url)
   end
 
   def get_page(url)

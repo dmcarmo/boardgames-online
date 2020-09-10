@@ -1,6 +1,9 @@
-<h1>Sites</h1>
-<ul>
+<div class="site">
+  <h1>Sites</h1>
   <% @sites.each do |site| %>
-    <li><%= link_to site.name, site_path(site) %></li>
+    <%= link_to site.name, site_path(site), class: "btn btn-light" %>
   <% end %>
-</ul>
+  <hr>
+  <%= link_to "Add a site", new_site_path, class: "btn btn-warning" %>
+  <%= link_to "Back to Games", root_path, class: "btn btn-primary" %>
+</div>
