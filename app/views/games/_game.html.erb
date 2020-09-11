@@ -1,9 +1,9 @@
 <% @games.sort_by(&:name).each do |game| %>
   <div class="card col-md-3 col-lg-2">
     <div class="card-body">
-      <h5 class="card-title"><%= link_to game.name, game.bgg_url %></h5>
+      <h5 class="card-title"><%= link_to game.name, game.bgg_url, target: :_blank %></h5>
       <% game.sites.each do |site| %>
-        <%= link_to site.name, site.url, class: "btn btn-light btn-sm" %>
+        <%= link_to site.name, site.url, class: "btn btn-light btn-sm", target: :_blank %>
       <% end %>
     </div>
   </div>
