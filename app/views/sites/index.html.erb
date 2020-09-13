@@ -1,6 +1,6 @@
 <div class="site">
   <h1>Sites</h1>
-  <% @sites.each do |site| %>
+  <% @sites.sort_by(&:name).each do |site| %>
     <%= link_to site.name, site_path(site), class: "btn btn-light" %>
   <% end %>
   <hr>
