@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_04_145347) do
+ActiveRecord::Schema.define(version: 2020_09_12_123928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_08_04_145347) do
     t.bigint "site_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "game_url"
     t.index ["game_id"], name: "index_game_sites_on_game_id"
     t.index ["site_id"], name: "index_game_sites_on_site_id"
   end
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 2020_08_04_145347) do
     t.date "last_check"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "parser_url"
   end
 
   create_table "users", force: :cascade do |t|

@@ -8,22 +8,22 @@ puts "Finished!"
 
 puts "Creating sites..."
 sites = Site.create([
-  { name: "Boiteajeux", url: "http://boiteajeux.net/index.php?p=regles"},
-  { name: "BoardGameArena", url: "https://en.boardgamearena.com/gamelist"},
-  { name: "Boardgamecore", url: "http://play.boardgamecore.net/"},
-  { name: "BoardGamePlay", url: "https://boardgameplay.com/"},
-  { name: "BoardGamingOnline", url: "http://www.boardgaming-online.com/"},
-  { name: "MaBiWeb", url: "http://www.mabiweb.com"},
-  { name: "OnlineTerraMystica", url: "https://terra.snellman.net/"},
-  { name: "Orderofthehammer", url: "http://brass.orderofthehammer.com/"},
-  { name: "rr18xx", url: "http://www.rr18xx.com"},
-  { name: "18xxGames", url: "https://www.18xx.games/"},
-  { name: "SlothNinja", url: "https://www.slothninja.com/"},
-  { name: "HappyMeeple", url: "https://www.happymeeple.com/en/"},
-  { name: "Tabletopia", url: "https://tabletopia.com/games?"},
-  { name: "Vassal", url: "http://www.vassalengine.org/wiki/Category:Modules"},
-  { name: "Yucata", url: "https://www.yucata.de/en"},
-  { name: "WebDiplomacy", url: "https://www.webdiplomacy.net/"}
+  { name: "Boiteajeux", url: "http://boiteajeux.net", parser_url: "http://boiteajeux.net/index.php?p=regles"},
+  { name: "BoardGameArena", url: "https://en.boardgamearena.com", parser_url: "https://en.boardgamearena.com/gamelist"},
+  # { name: "Boardgamecore", url: "http://play.boardgamecore.net/"},
+  # { name: "BoardGamePlay", url: "https://boardgameplay.com/"},
+  # { name: "BoardGamingOnline", url: "http://www.boardgaming-online.com/"},
+  # { name: "MaBiWeb", url: "http://www.mabiweb.com"},
+  # { name: "OnlineTerraMystica", url: "https://terra.snellman.net/"},
+  # { name: "Orderofthehammer", url: "http://brass.orderofthehammer.com/"},
+  # { name: "rr18xx", url: "http://www.rr18xx.com"},
+  # { name: "18xxGames", url: "https://www.18xx.games/"},
+  # { name: "SlothNinja", url: "https://www.slothninja.com/"},
+  { name: "HappyMeeple", url: "https://www.happymeeple.com", parser_url: "https://www.happymeeple.com/en/"},
+  { name: "Tabletopia", url: "https://tabletopia.com", parser_url: "https://tabletopia.com/games?"},
+  { name: "Vassal", url: "http://www.vassalengine.org", parser_url: "http://www.vassalengine.org/wiki/Category:Modules"},
+  { name: "Yucata", url: "https://www.yucata.de", parser_url: "https://www.yucata.de/en"}
+  # { name: "WebDiplomacy", url: "https://www.webdiplomacy.net/"}
 ])
 
 # "manual" lists for smaller sites
