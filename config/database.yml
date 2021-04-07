@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: boardgames_online_production
-  username: boardgames_online
+  username: deploy 
   password: <%= ENV['BOARDGAMES_ONLINE_DATABASE_PASSWORD'] %>
