@@ -2,6 +2,15 @@ body {
   background: linear-gradient(92.75deg, #00C2F6 0%, rgba(255, 255, 255, 0) 100%), #564FEA;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding-left: 10%;
+  padding-right: 10%;
+  max-width: 100%;
+}
+
 .header {
   border: 1px solid darkgray;
   margin-top: 20px;
@@ -50,7 +59,7 @@ h1,h3 {
 .table {
   display: flex;
   justify-content: space-between;
-  border: 1px solid darkgray;
+  // border: 1px solid darkgray;
   margin-bottom: 20px;
   flex-wrap: wrap;
 }
@@ -60,7 +69,7 @@ h1,h3 {
   border-radius: 4px;
   padding: 10px, 0px;
   height: 80vh;
-  overflow-y: scroll;
+  // overflow-y: scroll;
 }
 
 .card {

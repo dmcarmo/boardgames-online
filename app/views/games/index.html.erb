@@ -3,7 +3,7 @@
   <h3>If you want to know where your favorite boardgame is available to play online, this page is for you!</h3>
 </div>
 <div class="row colored-box">
-  <div class="col-md-3 filter inside-box">
+  <div class="col-2 filter inside-box me-2">
     <div class="position-sticky sticky-form">
       <%= simple_form_for :filter, url: root_path, method: :get, remote: true do |f| %>
         <%= f.input :search,
@@ -11,18 +11,19 @@
           placeholder: "Find a game",
           required: false
         %>
-        <%= f.input :sites, 
+        <!-- Disabled Site checkboxes due to incompatibility with the current pagination -->
+        <%#= f.input :sites, 
           label: "Sites", 
           collection: @sites.sort_by(&:name), 
           as: :check_boxes, 
           include_hidden: false,
           required: false
-         %>
+        %>
         <%= link_to "Reset", root_path  %>
       <% end %>
     </div>
   </div>
-  <div class="col-md-8 table inside-box" id="games">
+  <div class="col table inside-box ms-2" id="games">
     <%= render 'game', games: @games %>
   </div>
 </div>
