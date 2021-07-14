@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios'
+import Header from './Header'
+import SideMenu from './SideMenu'
+import Games from './Games'
 import './App.css';
 
-function App() {
+const App = () => {
+  const [state, setState] = useState([])
+  useEffect(() => {
+    axios
+      .get('http://localhost:3001')
+      .then(response => setState(response.data))
+  }, [])
+
   return (
-    <p>
-      All ready to build a React App!
-    </p>
+    <div>
+      <Header />
+      <div id='main'>
+        <SideMenu sitesList={state.sites} />
+        <Games gamesList={state.games} />
+      </div>
+    </div>
   );
 }
 
