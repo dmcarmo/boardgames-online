@@ -3,7 +3,6 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const SideMenu = (props) => {
-  console.log(props)
   const [state, setState] = React.useState({})
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });

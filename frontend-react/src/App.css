@@ -55,3 +55,7 @@ body {
 .MuiCardActions-root {
   justify-content: center;
 }
+
+.MuiPagination-ul {
+  justify-content: right;
+}

@@ -30,22 +30,8 @@ const Games = (props) => {
   return (
     <div className={classes.root}>
       <ImageList rowHeight={180} className={classes.imageList}>
-        {/* <ImageListItem key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">Games</ListSubheader>
-        </ImageListItem> */}
         {props.gamesList && props.gamesList.map(item => (
           <Game key={item.id} gameInfo={item} />
-          // <ImageListItem key={item.id}>
-          //   {/* <img src={item.img} alt={item.name} /> */}
-          //   <ImageListItemBar
-          //     title={item.name}
-          //     actionIcon={
-          //       <IconButton aria-label={`info about ${item.name}`} className={classes.icon}>
-          //         TESTE
-          //       </IconButton>
-          //     }
-          //   />
-          // </ImageListItem>
         ))}
       </ImageList>
     </div>

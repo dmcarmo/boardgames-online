@@ -26,6 +26,9 @@ gem 'jbuilder', '~> 2.7'
 # CORS
 gem 'rack-cors'
 
+# Pagination
+gem 'pagy'
+
 # Forms
 gem 'simple_form'
 
