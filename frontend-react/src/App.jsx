@@ -12,7 +12,7 @@ const App = () => {
     
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/?page=${page}`)
+      .get(`/api/games/?page=${page}`)
       .then(response => setState(response.data))
   }, [page])
 
