@@ -3,6 +3,12 @@ body {
   background-color: lightblue;
 }
 
+#root-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #header {
   margin-bottom: 8px;
   height: 60px;
@@ -10,6 +16,16 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+}
+
+#title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px;
 }
 
 #main {
@@ -65,5 +81,5 @@ body {
 }
 
 .search-box {
-  margin-top: 20px;
+  margin-bottom: 10px;
 }

@@ -7,6 +7,9 @@ const SideMenu = (props) => {
 
   return (
     <div id='side-menu'>
+      <form className="search-box" noValidate autoComplete="off">
+        <TextField id="filled-basic" label="Find a game!" variant="filled" onChange={props.handleSearch} value={props.search}/>
+      </form>
       {props.sitesList && props.sitesList.map(item => (
         <FormControlLabel
           key={item.id}
@@ -14,11 +17,6 @@ const SideMenu = (props) => {
           label={item.name}
         />
       ))}
-      <form className="search-box" noValidate autoComplete="off">
-      {/* <TextField id="standard-basic" label="Standard" /> */}
-      <TextField id="filled-basic" label="Find a game!" variant="filled" onChange={props.handleSearch} value={props.search}/>
-      {/* <TextField id="outlined-basic" label="Outlined" variant="outlined" /> */}
-      </form>
     </div>
   )
 }

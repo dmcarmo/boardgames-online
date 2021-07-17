@@ -19,8 +19,9 @@ const Header = () => {
           <Typography>BoardgameTools</Typography>
         </Button>
       </div>
-      <div>
-        <Button><Typography>BoardgamesOnline</Typography></Button></div>
+      {/* <div>
+        <Button><Typography>BoardgamesOnline</Typography></Button>
+      </div> */}
       <div>
         <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
         <Typography>Menu/Login</Typography>

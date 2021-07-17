@@ -42,8 +42,12 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div id='root-app'>
       <Header />
+      <div id='title'>
+        <Typography variant="h4" component="h2" gutterBottom >Boardgames Online</Typography>
+        <Typography variant="h5" component="h3">If you want to know where your favorite boardgame is available to play online, this page is for you!</Typography>
+      </div>
       <div id='main'>
         <SideMenu sitesList={state.sites} handleFilterChange={handleFilterChange} handleSearch={handleSearch} search={search}/>
         <Games gamesList={state.games} />
