@@ -1,23 +1,13 @@
 {
-  "name": "boardgames_online",
-  "private": true,
-  "dependencies": {
-    "@babel/plugin-proposal-private-methods": "^7.14.5",
-    "@popperjs/core": "^2.0.0",
-    "@rails/activestorage": "^6.0.0",
-    "@rails/ujs": "^6.0.3-2",
-    "@rails/webpacker": "5.4.0",
-    "bootstrap": "^5.0.0",
-    "serialize-javascript": "3.1.0",
-    "turbolinks": "^5.2.0",
-    "webpack": "^4.46.0"
+  "name": "boardgames-online",
+  "license": "MIT",
+  "engines": {
+    "node": "14.x",
+    "yarn": "1.x"
   },
-  "resolutions": {
-    "chokidar": "^3.4.0"
-  },
-  "version": "0.1.0",
-  "devDependencies": {
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.2"
+  "scripts": {
+    "build": "yarn --cwd frontend-react install && yarn --cwd frontend-react build",
+    "deploy": "cp -a frontend-react/build/. public/",
+    "heroku-postbuild": "yarn build && yarn deploy"
   }
 }

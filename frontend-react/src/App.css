@@ -1,0 +1,85 @@
+body {
+  margin: 0px;
+  background-color: lightblue;
+}
+
+#root-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#header {
+  margin-bottom: 8px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+#title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+#main {
+  display: flex;
+  align-items: flex-start;
+  padding: 8px;
+}
+
+#side-menu {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  margin-top: 8px;
+  margin-right: 8px;
+  border-radius: 8px;
+}
+
+.games {
+  display: flex;
+  margin-top: 8px;
+}
+
+.imageList {
+  width: 500;
+  height: 450;
+}
+
+.card-media {
+  height: 140;
+}
+
+.MuiImageList-root {
+  justify-content: center;
+}
+
+.MuiCard-root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.MuiCardActions-root {
+  justify-content: center;
+}
+
+.MuiPagination-ul {
+  justify-content: right;
+}
+
+#pagination {
+  text-align: right;
+}
+
+.search-box {
+  margin-bottom: 10px;
+}
