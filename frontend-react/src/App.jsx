@@ -4,31 +4,55 @@ import axios from 'axios'
 import Header from './Header'
 import SideMenu from './SideMenu'
 import Games from './Games'
+import Typography from '@material-ui/core/Typography';
 import './App.css';
 
 const App = () => {
   const [state, setState] = useState([])
   const [page, setPage] = useState(1)
-    
+  const [filters, setFilters] = useState({})
+  const [sites, setSites] = useState([])
+  const [search, setSearch] = useState("")
+
+  const handleFilterChange = (event) => {
+    const eventChange = { ...filters, [event.target.name] : event.target.checked }
+    setFilters(eventChange)
+    setSites(Object.keys(eventChange).filter((item) => {
+      return eventChange[item] === true
+    }))
+  }
+
   useEffect(() => {
     axios
-      .get(`/api/games/?page=${page}`)
+      .get(`/api/games/?page=${page}`, {
+        params: {
+          site: sites,
+          search: [search]
+        }
+      })
       .then(response => setState(response.data))
-  }, [page])
+  }, [page, search, sites])
 
-  const handleChange = (event, value) => {
+  const handlePageChange = (event, value) => {
     setPage(value)
+  }
+
+  const handleSearch = event => {
+    setSearch(event.target.value)
   }
 
   return (
     <div>
       <Header />
       <div id='main'>
-        <SideMenu sitesList={state.sites} />
+        <SideMenu sitesList={state.sites} handleFilterChange={handleFilterChange} handleSearch={handleSearch} search={search}/>
         <Games gamesList={state.games} />
       </div>
       {state.pagy &&
-        <Pagination count={state.pagy.pages} onChange={handleChange} showFirstButton showLastButton />
+        <div id="pagination">
+          <Typography>{state.pagy.count} games</Typography>
+          <Pagination count={state.pagy.pages} onChange={handlePageChange} showFirstButton showLastButton />
+        </div>
       }
     </div>
   );

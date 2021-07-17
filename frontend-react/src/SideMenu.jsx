@@ -1,21 +1,24 @@
 import React from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import TextField from '@material-ui/core/TextField';
 
 const SideMenu = (props) => {
-  const [state, setState] = React.useState({})
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  }
+
   return (
     <div id='side-menu'>
-      {props.sitesList && props.sitesList && props.sitesList.map(item => (
+      {props.sitesList && props.sitesList.map(item => (
         <FormControlLabel
           key={item.id}
-          control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
+          control={<Checkbox onChange={props.handleFilterChange} name={item.id.toString()} />}
           label={item.name}
         />
       ))}
+      <form className="search-box" noValidate autoComplete="off">
+      {/* <TextField id="standard-basic" label="Standard" /> */}
+      <TextField id="filled-basic" label="Find a game!" variant="filled" onChange={props.handleSearch} value={props.search}/>
+      {/* <TextField id="outlined-basic" label="Outlined" variant="outlined" /> */}
+      </form>
     </div>
   )
 }

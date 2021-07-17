@@ -3,22 +3,15 @@ class GamesController < ApplicationController
 
   def index
     @sites = Site.all
-    @pagy, @games = pagy(Game.includes(:sites).reorder(:name))
-    if params['filter'].present?
-      if params['filter']['sites'].present?
-        site_ids = params['filter']['sites'].map {|s| s.to_i}
-        game_ids = Site.where(id: site_ids).map{ |site| site.games.pluck(:id) }.flatten.uniq
-        @pagy, @games = pagy(@games.where(id: game_ids).includes(:sites).reorder(:name))
-      end
-      if params['filter']['search'].present?
-        query = params['filter']['search']
-        @pagy, @games = pagy(@games.search_by_name(query).includes(:sites).reorder(:name))
-      end
+    @games = Game.includes(:sites).reorder(:name)
+    @games = @games.search_by_name(params[:search]).includes(:sites).reorder(:name) if params[:search].first != ''
+    if params[:site] && params[:site].first != ''
+      site_ids = params[:site].map(&:to_i)
+      game_ids = Site.where(id: site_ids).map { |site| site.games.pluck(:id) }.flatten.uniq
+      @games = @games.where(id: game_ids).includes(:sites).reorder(:name)
     end
-    # puts @games
-    # puts @sites
-    # puts @pagy
-    render json: { games: @games, sites: @sites, pagy: pagy_metadata(@pagy) }
+    @pagy, @games = pagy(@games)
+    render json: { games: @games, sites: @sites, pagy: { count: @pagy.count, pages: @pagy.pages } }
   end
 
   def show
